@@ -563,13 +563,8 @@
     }
 
     .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     /* RESPONSIVE */
@@ -745,24 +740,25 @@
         <p class="contact-text">
           got a project idea, an opportunity, or just wanna talk tech? slide in. i don't bite and i check my email more than i should.
         </p>
-        <a class="contact-link" href="mailto:jabatamohammad@gmail.com">
-          ↗ jabatamohammad@gmail.com
+        <a class="contact-link" href="/cdn-cgi/l/email-protection#b1dbd0d3d0c5d0dcded9d0dcdcd0d5f1d6dcd0d8dd9fd2dedc">
+          ↗ <span class="__cf_email__" data-cfemail="7913181b180d18141611181414181d391e14181015571a1614">[email&#160;protected]</span>
         </a>
       </div>
       <div class="contact-form reveal">
         <div class="form-field">
           <label>Name</label>
-          <input type="text" placeholder="ur name" />
+          <input type="text" id="name" placeholder="ur name" />
         </div>
         <div class="form-field">
           <label>Email</label>
-          <input type="email" placeholder="ur email" />
+          <input type="email" id="email" placeholder="ur email" />
         </div>
         <div class="form-field">
           <label>Message</label>
-          <textarea placeholder="what's on ur mind"></textarea>
+          <textarea id="message" placeholder="what's on ur mind"></textarea>
         </div>
-        <button class="btn-submit">send it →</button>
+        <button class="btn-submit" id="submit-btn" onclick="submitForm()">send it →</button>
+        <div id="form-status" style="font-family: var(--font-mono); font-size: 0.75rem; padding: 1rem 1.5rem; display: none;"></div>
       </div>
     </div>
   </section>
@@ -776,7 +772,55 @@
     </ul>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Formspree form submission
+    async function submitForm() {
+      const btn = document.getElementById('submit-btn');
+      const status = document.getElementById('form-status');
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        status.style.display = 'block';
+        status.style.color = '#CF9893';
+        status.textContent = 'fill everything in first lol';
+        return;
+      }
+
+      btn.textContent = 'sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://formspree.io/f/myknwnzy', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        status.style.display = 'block';
+        if (res.ok) {
+          status.style.color = '#9A79A0';
+          status.textContent = '✓ sent! i\'ll get back to you soon.';
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('message').value = '';
+          btn.textContent = 'sent ✓';
+        } else {
+          status.style.color = '#CF9893';
+          status.textContent = 'something went wrong. try emailing me directly?';
+          btn.textContent = 'send it →';
+          btn.disabled = false;
+        }
+      } catch {
+        status.style.display = 'block';
+        status.style.color = '#CF9893';
+        status.textContent = 'network error. try emailing me directly?';
+        btn.textContent = 'send it →';
+        btn.disabled = false;
+      }
+    }
+
     // Nav scroll effect
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -792,15 +836,4 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.01, rootMargin: '0px 0px -50px 0px' });
-
-    reveals.forEach(el => observer.observe(el));
-
-    // Fallback: make everything visible after 1.5s just in case
-    setTimeout(() => {
-      reveals.forEach(el => el.classList.add('visible'));
-    }, 1500);
-  </script>
-
-</body>
-</html>
+    }, { threshold: 0.01, rootMargin: '0px 0px -
