@@ -88,11 +88,11 @@
 
     /* HERO */
     .hero {
-      min-height: 100vh;
+      min-height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 0 3rem 5rem;
+      padding: 6rem 3rem 4rem;
       position: relative;
       overflow: hidden;
     }
@@ -134,7 +134,7 @@
     }
 
     .hero-name {
-      font-size: clamp(3.5rem, 9vw, 9rem);
+      font-size: clamp(2.2rem, 8vw, 9rem);
       font-weight: 800;
       line-height: 0.92;
       letter-spacing: -0.04em;
@@ -582,6 +582,7 @@
       .achievements { grid-template-columns: 1fr; }
       .project-row { grid-template-columns: 1fr auto; }
       .project-tags { display: none; }
+      .hero-name { font-size: clamp(2rem, 11vw, 4rem); letter-spacing: -0.03em; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
@@ -603,15 +604,15 @@
     <div class="hero-grid"></div>
     <div class="hero-accent-dot"></div>
 
-    <p class="hero-tag">// Developer & Builder</p>
+    <p class="hero-tag">// robotics science freshman. building stuff. figuring it out.</p>
     <h1 class="hero-name">
       Mohammad<br>
       <span>Jabata</span>
     </h1>
     <div class="hero-bottom">
       <p class="hero-bio">
-        18-year-old <strong>RS freshman</strong> at JUST — Jordan University of Science and Technology.<br>
-        Building things at the intersection of <strong>AI, Python, and the web.</strong>
+        18 y/o <strong>robotics science freshman</strong> at JUST, jordan 🇯🇴<br>
+        i make things with python and AI and pray they work. <strong>sometimes they do.</strong>
       </p>
       <p class="scroll-hint">Scroll to explore</p>
     </div>
@@ -623,15 +624,15 @@
     <div class="about-grid">
       <div>
         <h2 class="about-heading reveal">
-          Freshman.<br>
-          Builder.<br>
-          <em>Fast learner.</em>
+          still a<br>
+          freshman.<br>
+          <em>shipping anyway.</em>
         </h2>
         <p class="about-text reveal">
-          I'm Mohammad, a Robotics Science student at JUST with a background in C++ and a growing obsession with Python, AI APIs, and building real things that work.
+          hey i'm mohammad. robotics science student at JUST. i learned what a POST request was like 6 months ago and now i'm building full-stack AI apps. make it make sense.
         </p>
         <p class="about-text reveal">
-          I don't wait for a classroom to teach me — I build projects, break them, and figure it out. Currently exploring FastAPI, Gemini AI, and full-stack development.
+          i don't wait for class to teach me stuff — i just build things, break them completely, then fix them at 2am. currently deep into FastAPI, Gemini AI, and trying to write python that doesn't make senior devs cry.
         </p>
       </div>
       <div>
@@ -643,6 +644,10 @@
           <div class="about-stat">
             <span class="stat-label">University</span>
             <span class="stat-value">JUST</span>
+          </div>
+          <div class="about-stat">
+            <span class="stat-label">Major</span>
+            <span class="stat-value">Robotics Science</span>
           </div>
           <div class="about-stat">
             <span class="stat-label">Year</span>
@@ -665,17 +670,17 @@
       <div class="achievement-card">
         <div class="achievement-icon">🏆</div>
         <div class="achievement-title">English Language Olympics</div>
-        <div class="achievement-sub">Sponsored by the U.S. Embassy — competed in national-level English language competition.</div>
+        <div class="achievement-sub">national-level competition sponsored by the U.S. Embassy. yes i was that kid.</div>
       </div>
       <div class="achievement-card">
         <div class="achievement-icon">🤖</div>
         <div class="achievement-title">First Lego League (FLL)</div>
-        <div class="achievement-sub">Robotics & engineering competition combining STEM problem-solving with teamwork.</div>
+        <div class="achievement-sub">built robots out of legos and competed. it was exactly as fun as it sounds.</div>
       </div>
       <div class="achievement-card">
         <div class="achievement-icon">🔬</div>
         <div class="achievement-title">Science & Arts Fair</div>
-        <div class="achievement-sub">Participated in local school fair — showcasing projects at the intersection of science and creativity.</div>
+        <div class="achievement-sub">showed up, made something, presented it. idk it's on the list.</div>
       </div>
     </div>
   </section>
@@ -689,7 +694,7 @@
         <div>
           <p class="project-num">001</p>
           <p class="project-name">Reel-Mind</p>
-          <p class="project-desc">AI-powered search engine for your saved reels. Downloads Instagram, TikTok & YouTube Shorts via yt-dlp, then uses Gemini AI to auto-categorize them — so you can actually find them later.</p>
+          <p class="project-desc">ur saved reels folder is a graveyard. this fixes that. drops a url → yt-dlp grabs the reel → gemini AI categorizes it → supabase saves it to ur account. actually works (on my machine at least).</p>
         </div>
         <div class="project-tags">
           <span class="tag">Python</span>
@@ -705,7 +710,7 @@
         <div>
           <p class="project-num">002</p>
           <p class="project-name">Sales Dashboard</p>
-          <p class="project-desc">Finance dashboard built with Python's Matplotlib and Pandas. Visualizes revenue, expenses, profit, and customer growth through 4 chart types — line, bar, area, and pie. Ships with 6 sample datasets.</p>
+          <p class="project-desc">my first real python project. visualizes sales data — revenue, expenses, profit, customers — across 4 chart types. it's beginner work and i'm not ashamed. we all start somewhere.</p>
         </div>
         <div class="project-tags">
           <span class="tag">Python</span>
@@ -719,8 +724,8 @@
       <a class="project-row" href="https://github.com/msjabata25" target="_blank">
         <div>
           <p class="project-num">003</p>
-          <p class="project-name">More on GitHub</p>
-          <p class="project-desc">Always building something new. Check out the GitHub profile for the latest work.</p>
+          <p class="project-name">more on github →</p>
+          <p class="project-desc">always cooking something. no idea if it'll work. check the github to see what i'm breaking rn.</p>
         </div>
         <div class="project-tags">
           <span class="tag">↗ github.com/msjabata25</span>
@@ -736,9 +741,9 @@
     <p class="section-label reveal">03 — Contact</p>
     <div class="contact-wrapper">
       <div class="reveal">
-        <h2 class="contact-heading">Let's<br><span>talk.</span></h2>
+        <h2 class="contact-heading">let's<br><span>talk.</span></h2>
         <p class="contact-text">
-          I'm always down to connect — whether it's about a project, an opportunity, or just to talk tech. Shoot me a message.
+          got a project idea, an opportunity, or just wanna talk tech? slide in. i don't bite and i check my email more than i should.
         </p>
         <a class="contact-link" href="mailto:jabatamohammad@gmail.com">
           ↗ jabatamohammad@gmail.com
@@ -747,24 +752,24 @@
       <div class="contact-form reveal">
         <div class="form-field">
           <label>Name</label>
-          <input type="text" placeholder="Your name" />
+          <input type="text" placeholder="ur name" />
         </div>
         <div class="form-field">
           <label>Email</label>
-          <input type="email" placeholder="you@example.com" />
+          <input type="email" placeholder="ur email" />
         </div>
         <div class="form-field">
           <label>Message</label>
-          <textarea placeholder="What's on your mind?"></textarea>
+          <textarea placeholder="what's on ur mind"></textarea>
         </div>
-        <button class="btn-submit">Send Message →</button>
+        <button class="btn-submit">send it →</button>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p class="footer-copy">© 2025 Mohammad Jabata. Built from scratch.</p>
+    <p class="footer-copy">© 2025 mohammad jabata. built from scratch (with a lot of help from the docs ngl)</p>
     <ul class="footer-socials">
       <li><a href="https://github.com/msjabata25" target="_blank">GitHub</a></li>
       <li><a href="https://linkedin.com/" target="_blank">LinkedIn</a></li>
@@ -787,9 +792,14 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.01, rootMargin: '0px 0px -50px 0px' });
 
     reveals.forEach(el => observer.observe(el));
+
+    // Fallback: make everything visible after 1.5s just in case
+    setTimeout(() => {
+      reveals.forEach(el => el.classList.add('visible'));
+    }, 1500);
   </script>
 
 </body>
