@@ -159,7 +159,7 @@
     }
 
     .hero-bio {
-      max-width: 380px;
+      max-width: 420px;
       font-family: var(--font-mono);
       font-size: 0.85rem;
       color: var(--sub);
@@ -357,6 +357,7 @@
       transition: background 0.2s;
       text-decoration: none;
       color: inherit;
+      position: relative;
     }
 
     .project-row:hover { background: var(--surface); }
@@ -364,6 +365,24 @@
     .project-row:hover .project-arrow {
       transform: translateX(4px);
       color: var(--accent);
+    }
+
+    /* Featured badge for Pragma */
+    .project-featured-badge {
+      position: absolute;
+      top: 1rem;
+      right: 4rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      border: 1px solid #6968A6;
+      padding: 0.2rem 0.5rem;
+      opacity: 0.8;
     }
 
     .project-num {
@@ -387,6 +406,14 @@
       color: var(--sub);
       font-weight: 300;
       line-height: 1.6;
+    }
+
+    .project-fair-note {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #9A79A0;
+      margin-top: 0.5rem;
+      font-weight: 300;
     }
 
     .project-tags {
@@ -445,7 +472,13 @@
       color: var(--sub);
       line-height: 1.9;
       font-weight: 300;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
 
     .contact-link {
@@ -463,6 +496,7 @@
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s;
       padding-bottom: 2px;
+      width: fit-content;
     }
     .contact-link:hover { border-color: #9A79A0; }
 
@@ -582,6 +616,7 @@
       .achievements { grid-template-columns: 1fr; }
       .project-row { grid-template-columns: 1fr auto; }
       .project-tags { display: none; }
+      .project-featured-badge { display: none; }
       .hero-name { font-size: clamp(2rem, 11vw, 4rem); letter-spacing: -0.03em; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
@@ -604,7 +639,7 @@
     <div class="hero-grid"></div>
     <div class="hero-accent-dot"></div>
 
-    <p class="hero-tag">// robotics science freshman. building stuff. figuring it out.</p>
+    <p class="hero-tag">// robotics science freshman. building things that probably shouldn't work. they do though.</p>
     <h1 class="hero-name">
       Mohammad<br>
       <span>Jabata</span>
@@ -612,7 +647,8 @@
     <div class="hero-bottom">
       <p class="hero-bio">
         18 y/o <strong>robotics science freshman</strong> at JUST, jordan 🇯🇴<br>
-        i make things with python and AI and pray they work. <strong>sometimes they do.</strong>
+        i make things with python and AI and pray they work.<br>
+        <strong>spoiler: they usually do. eventually.</strong>
       </p>
       <p class="scroll-hint">Scroll to explore</p>
     </div>
@@ -629,10 +665,13 @@
           <em>shipping anyway.</em>
         </h2>
         <p class="about-text reveal">
-          hey i'm mohammad. robotics science student at JUST. i learned what a POST request was like 6 months ago and now i'm building full-stack AI apps. make it make sense.
+          hey i'm mohammad. robotics science student at JUST. i learned what a POST request was like 6 months ago and now i'm building full-stack AI security tools that impress faculty. make it make sense.
         </p>
         <p class="about-text reveal">
-          i don't wait for class to teach me stuff — i just build things, break them completely, then fix them at 2am. currently deep into FastAPI, Gemini AI, and trying to write python that doesn't make senior devs cry.
+          i don't wait for class to teach me stuff — i just build things, break them completely, then fix them at 2am. my debugging process is: stare at it, give up, come back, find a typo. very advanced.
+        </p>
+        <p class="about-text reveal">
+          currently deep into FastAPI, RAG pipelines, and trying to write python that doesn't make senior devs cry. progress: mixed.
         </p>
       </div>
       <div>
@@ -670,17 +709,17 @@
       <div class="achievement-card">
         <div class="achievement-icon">🏆</div>
         <div class="achievement-title">English Language Olympics</div>
-        <div class="achievement-sub">national-level competition sponsored by the U.S. Embassy. yes i was that kid.</div>
+        <div class="achievement-sub">national-level competition sponsored by the U.S. Embassy. yes i was that kid. no i will not elaborate.</div>
       </div>
       <div class="achievement-card">
         <div class="achievement-icon">🤖</div>
         <div class="achievement-title">First Lego League (FLL)</div>
-        <div class="achievement-sub">built robots out of legos and competed. it was exactly as fun as it sounds.</div>
+        <div class="achievement-sub">built robots out of legos and competed internationally. it was exactly as fun as it sounds and i'd do it again.</div>
       </div>
       <div class="achievement-card">
         <div class="achievement-icon">🔬</div>
         <div class="achievement-title">Science & Arts Fair</div>
-        <div class="achievement-sub">showed up, made something, presented it. idk it's on the list.</div>
+        <div class="achievement-sub">showed up, made something, presented it confidently. character-building experience. on the résumé it goes.</div>
       </div>
     </div>
   </section>
@@ -690,11 +729,33 @@
     <p class="section-label reveal">02 — Projects</p>
     <div class="projects-list reveal">
 
-      <a class="project-row" href="https://github.com/msjabata25/Reel-Mind" target="_blank">
+      <!-- PRAGMA — FEATURED -->
+      <a class="project-row" href="https://github.com/msjabata25/pragma" target="_blank">
+        <div class="project-featured-badge">★ projects fair — students &amp; faculty loved it</div>
         <div>
           <p class="project-num">001</p>
+          <p class="project-name">Pragma 🔍</p>
+          <p class="project-desc">your code is a security nightmare. you just don't know it yet. pragma scans your repo with semgrep, runs a RAG-powered agent loop through a curated OWASP + CWE knowledge base, and generates plain-english security reports in three modes: technical, CEO, and public. no security degree required. just paste your github url and cringe at the results.</p>
+          <p class="project-fair-note">↳ presented at JUST's university projects fair. turned heads. faculty asked questions. freshmen stared. shipped alpha anyway.</p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Semgrep</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Groq</span>
+          <span class="tag">Gemini</span>
+        </div>
+        <span class="project-arrow">→</span>
+      </a>
+
+      <!-- REEL-MIND -->
+      <a class="project-row" href="https://github.com/msjabata25/Reel-Mind" target="_blank">
+        <div>
+          <p class="project-num">002</p>
           <p class="project-name">Reel-Mind</p>
-          <p class="project-desc">ur saved reels folder is a graveyard. this fixes that. drops a url → yt-dlp grabs the reel → gemini AI categorizes it → supabase saves it to ur account. actually works (on my machine at least).</p>
+          <p class="project-desc">ur saved reels folder is a graveyard and you know it. drops a url → yt-dlp grabs the reel → gemini AI categorizes it → supabase saves it to ur account. actually works (on my machine at least). instagram killed it by updating their bot detection. open-sourced and moved on, as one does.</p>
         </div>
         <div class="project-tags">
           <span class="tag">Python</span>
@@ -706,11 +767,12 @@
         <span class="project-arrow">→</span>
       </a>
 
+      <!-- SALES DASHBOARD -->
       <a class="project-row" href="https://github.com/msjabata25/-data-vis-project" target="_blank">
         <div>
-          <p class="project-num">002</p>
+          <p class="project-num">003</p>
           <p class="project-name">Sales Dashboard</p>
-          <p class="project-desc">my first real python project. visualizes sales data — revenue, expenses, profit, customers — across 4 chart types. it's beginner work and i'm not ashamed. we all start somewhere.</p>
+          <p class="project-desc">my first real python project. visualizes sales data — revenue, expenses, profit, customers — across 4 chart types. it's beginner work and i'm not ashamed. everyone has an origin story. this is mine. pandas did most of the heavy lifting ngl.</p>
         </div>
         <div class="project-tags">
           <span class="tag">Python</span>
@@ -721,11 +783,12 @@
         <span class="project-arrow">→</span>
       </a>
 
+      <!-- MORE -->
       <a class="project-row" href="https://github.com/msjabata25" target="_blank">
         <div>
-          <p class="project-num">003</p>
+          <p class="project-num">004</p>
           <p class="project-name">more on github →</p>
-          <p class="project-desc">always cooking something. no idea if it'll work. check the github to see what i'm breaking rn.</p>
+          <p class="project-desc">always cooking something. no idea if it'll work. check the github to see what i'm breaking right now. the commit messages are very honest about the suffering.</p>
         </div>
         <div class="project-tags">
           <span class="tag">↗ github.com/msjabata25</span>
@@ -743,11 +806,19 @@
       <div class="reveal">
         <h2 class="contact-heading">let's<br><span>talk.</span></h2>
         <p class="contact-text">
-          got a project idea, an opportunity, or just wanna talk tech? slide in. i don't bite and i check my email more than i should.
+          got a project idea, an internship, or just wanna talk tech? slide in. i check my email more than i should and my dms more than i'd like to admit. response time: somewhere between immediately and after my next exam.
         </p>
-        <a class="contact-link" href="jabatamohammad@gmail.com">
-          ↗ <span class="__cf_email__" data-cfemail="jabatamohammad@gmail.com">jabatamohammad@gmail.com</span>
-        </a>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:jabatamohammad@gmail.com">
+            ↗ jabatamohammad@gmail.com
+          </a>
+          <a class="contact-link" href="https://www.instagram.com/prolly_moe/" target="_blank">
+            ↗ instagram — @prolly_moe
+          </a>
+          <a class="contact-link" href="https://github.com/msjabata25" target="_blank">
+            ↗ github — msjabata25
+          </a>
+        </div>
       </div>
       <div class="contact-form reveal">
         <div class="form-field">
@@ -773,12 +844,12 @@
     <p class="footer-copy">© 2025 mohammad jabata. built from scratch (with a lot of help from the docs ngl)</p>
     <ul class="footer-socials">
       <li><a href="https://github.com/msjabata25" target="_blank">GitHub</a></li>
+      <li><a href="https://www.instagram.com/prolly_moe/" target="_blank">Instagram</a></li>
       <li><a href="https://linkedin.com/" target="_blank">LinkedIn</a></li>
     </ul>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Formspree form submission
+  <script>
     async function submitForm() {
       const btn = document.getElementById('submit-btn');
       const status = document.getElementById('form-status');
